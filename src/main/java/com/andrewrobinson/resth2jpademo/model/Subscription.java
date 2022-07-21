@@ -10,7 +10,7 @@ public class Subscription {
     private @Id
     @GeneratedValue Long id;
 
-    private String zser;
+    private String natwestUser;
 
     @Basic
     @Enumerated(EnumType.STRING)
@@ -18,9 +18,9 @@ public class Subscription {
 
     Subscription(){}
 
-    Subscription(String zser, SubscriptionType subscriptionType) {
+    Subscription(String natwestUser, SubscriptionType subscriptionType) {
 
-        this.zser = zser;
+        this.natwestUser = natwestUser;
         this.subscriptionType = subscriptionType;
     }
 
@@ -32,12 +32,12 @@ public class Subscription {
         this.id = id;
     }
 
-    public String getZser() {
-        return zser;
+    public String getNatwestUser() {
+        return natwestUser;
     }
 
-    public void setZser(String zser) {
-        this.zser = zser;
+    public void setNatwestUser(String zser) {
+        this.natwestUser = zser;
     }
 
     public SubscriptionType getSubscriptionType() {
@@ -53,21 +53,21 @@ public class Subscription {
 
         if (this == o)
             return true;
-        if (!(o instanceof Zser))
+        if (!(o instanceof NatwestUser))
             return false;
         Subscription subscription = (Subscription) o;
-        return Objects.equals(this.id, subscription.id) && Objects.equals(this.zser, subscription.zser)
+        return Objects.equals(this.id, subscription.id) && Objects.equals(this.natwestUser, subscription.natwestUser)
                 && Objects.equals(this.subscriptionType, subscription.subscriptionType);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(this.id, this.zser, this.subscriptionType);
+        return Objects.hash(this.id, this.natwestUser, this.subscriptionType);
     }
 
     @Override
     public String toString() {
-        return "Subscription{" + "id=" + this.id + ", zser='" + this.zser + '\'' + ", subscriptionType='" + this.subscriptionType + '\'' + '}';
+        return "Subscription{" + "id=" + this.id + ", user='" + this.natwestUser + '\'' + ", subscriptionType='" + this.subscriptionType + '\'' + '}';
     }
 
 }

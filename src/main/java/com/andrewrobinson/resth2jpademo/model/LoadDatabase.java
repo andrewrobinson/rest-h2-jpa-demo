@@ -12,15 +12,13 @@ class LoadDatabase {
     private static final Logger log = LoggerFactory.getLogger(LoadDatabase.class);
 
     @Bean
-    CommandLineRunner initDatabase(EmployeeRepository employeeRepository, ZserRepository userRepository, SubscriptionRepository subscriptionRepository) {
+    CommandLineRunner initDatabase(NatwestUserRepository userRepository, SubscriptionRepository subscriptionRepository) {
 
         return args -> {
-            log.info("Preloading " + employeeRepository.save(new Employee("Bilbo Baggins", "burglar")));
-            log.info("Preloading " + employeeRepository.save(new Employee("Frodo Baggins", "thief")));
 
-            log.info("Preloading " + userRepository.save(new Zser("john", "password")));
-            log.info("Preloading " + userRepository.save(new Zser("jackie", "password")));
-            log.info("Preloading " + userRepository.save(new Zser("sally", "password")));
+            log.info("Preloading " + userRepository.save(new NatwestUser("john", "password")));
+            log.info("Preloading " + userRepository.save(new NatwestUser("jackie", "password")));
+            log.info("Preloading " + userRepository.save(new NatwestUser("sally", "password")));
 
             log.info("Preloading " + subscriptionRepository.save(new Subscription("john", SubscriptionType.DEMO)));
             log.info("Preloading " + subscriptionRepository.save(new Subscription("jackie", SubscriptionType.SILVER)));

@@ -43,7 +43,7 @@ class SubscriptionController {
 
         return repository.findById(id)
                 .map(subscription -> {
-                    subscription.setZser(newSubscription.getZser());
+                    subscription.setNatwestUser(newSubscription.getNatwestUser());
                     subscription.setSubscriptionType(newSubscription.getSubscriptionType());
                     return repository.save(subscription);
                 })

@@ -7,15 +7,15 @@ import java.util.Objects;
 
 @Entity
 public
-class Zser {
+class NatwestUser {
 
     private @Id @GeneratedValue Long id;
     private String username;
     private String password;
 
-    Zser() {}
+    NatwestUser() {}
 
-    Zser(String username, String password) {
+    NatwestUser(String username, String password) {
 
         this.username = username;
         this.password = password;
@@ -50,9 +50,9 @@ class Zser {
 
         if (this == o)
             return true;
-        if (!(o instanceof Zser))
+        if (!(o instanceof NatwestUser))
             return false;
-        Zser employee = (Zser) o;
+        NatwestUser employee = (NatwestUser) o;
         return Objects.equals(this.id, employee.id) && Objects.equals(this.username, employee.username)
                 && Objects.equals(this.password, employee.password);
     }
@@ -64,6 +64,6 @@ class Zser {
 
     @Override
     public String toString() {
-        return "User{" + "id=" + this.id + ", username='" + this.username + '\'' + ", password='" + this.password + '\'' + '}';
+        return "NatwestUser{" + "id=" + this.id + ", username='" + this.username + '\'' + ", password='" + this.password + '\'' + '}';
     }
 }
