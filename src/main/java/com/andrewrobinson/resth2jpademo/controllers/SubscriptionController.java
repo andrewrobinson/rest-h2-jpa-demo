@@ -2,6 +2,10 @@ package com.andrewrobinson.resth2jpademo.controllers;
 
 import com.andrewrobinson.resth2jpademo.model.Subscription;
 import com.andrewrobinson.resth2jpademo.model.SubscriptionRepository;
+import org.springframework.security.authentication.AnonymousAuthenticationToken;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -20,9 +24,27 @@ class SubscriptionController {
     // tag::get-aggregate-root[]
     @GetMapping("/subscriptions")
     List<Subscription> all() {
+
+        System.out.println("User: " + getLoggedInUser());
+
         return repository.findAll();
     }
     // end::get-aggregate-root[]
+
+    private String getLoggedInUser() {
+//        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+//        String currentPrincipalName = authentication.getName();
+//        return currentPrincipalName;
+
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        if (!(authentication instanceof AnonymousAuthenticationToken)) {
+            String currentUserName = authentication.getName();
+            return currentUserName;
+        } else {
+            throw new RuntimeException("No User");
+        }
+
+    }
 
     @PostMapping("/subscriptions")
     Subscription newSubscription(@RequestBody Subscription newSubscription) {

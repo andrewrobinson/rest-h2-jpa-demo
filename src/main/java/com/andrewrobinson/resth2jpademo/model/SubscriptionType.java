@@ -10,8 +10,8 @@ class Seconds {
 public enum SubscriptionType {
 
     //https://howtodoinjava.com/java/enum/enum-with-multiple-values/
-    DEMO(10,1000,1 * SECONDS_IN_A_MONTH),
-    SILVER(1,1,1 * SECONDS_IN_A_MINUTE),
+    DEMO(10,1000,SECONDS_IN_A_MONTH),
+    SILVER(1,1,SECONDS_IN_A_MINUTE),
     GOLD(-1,1,10);
 
     private final int maxStocksPerMonth;

@@ -3,7 +3,6 @@ package com.andrewrobinson.resth2jpademo.model;
 import javax.persistence.*;
 import java.util.Objects;
 
-
 @Entity
 public class Subscription {
 
