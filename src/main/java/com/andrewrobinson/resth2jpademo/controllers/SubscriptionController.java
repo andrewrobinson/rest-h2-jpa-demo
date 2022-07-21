@@ -25,26 +25,9 @@ class SubscriptionController {
     @GetMapping("/subscriptions")
     List<Subscription> all() {
 
-        System.out.println("User: " + getLoggedInUser());
-
         return repository.findAll();
     }
     // end::get-aggregate-root[]
-
-    private String getLoggedInUser() {
-//        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-//        String currentPrincipalName = authentication.getName();
-//        return currentPrincipalName;
-
-        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-        if (!(authentication instanceof AnonymousAuthenticationToken)) {
-            String currentUserName = authentication.getName();
-            return currentUserName;
-        } else {
-            throw new RuntimeException("No User");
-        }
-
-    }
 
     @PostMapping("/subscriptions")
     Subscription newSubscription(@RequestBody Subscription newSubscription) {
@@ -62,6 +45,8 @@ class SubscriptionController {
 
     @PutMapping("/subscriptions/{id}")
     Subscription replaceSubscription(@RequestBody Subscription newSubscription, @PathVariable Long id) {
+
+        //TODO - can only update subscription once a month
 
         return repository.findById(id)
                 .map(subscription -> {
