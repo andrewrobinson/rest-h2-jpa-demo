@@ -2,10 +2,6 @@ package com.andrewrobinson.resth2jpademo.controllers;
 
 import com.andrewrobinson.resth2jpademo.model.Subscription;
 import com.andrewrobinson.resth2jpademo.model.SubscriptionRepository;
-import org.springframework.security.authentication.AnonymousAuthenticationToken;
-import org.springframework.security.core.Authentication;
-import org.springframework.security.core.context.SecurityContextHolder;
-import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;

@@ -15,7 +15,8 @@ public class Subscription {
     @Enumerated(EnumType.STRING)
     private SubscriptionType subscriptionType;
 
-    Subscription(){}
+    public Subscription() {
+    }
 
     Subscription(String natwestUser, SubscriptionType subscriptionType) {
 

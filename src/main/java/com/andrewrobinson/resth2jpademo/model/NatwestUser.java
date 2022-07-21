@@ -9,11 +9,13 @@ import java.util.Objects;
 public
 class NatwestUser {
 
-    private @Id @GeneratedValue Long id;
+    private @Id
+    @GeneratedValue Long id;
     private String username;
     private String password;
 
-    NatwestUser() {}
+    NatwestUser() {
+    }
 
     NatwestUser(String username, String password) {
 
